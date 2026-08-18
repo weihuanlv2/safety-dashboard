@@ -1,1570 +1,1573 @@
-[
-  {
-    "site": "集约配送-兴必达【西安】北院门站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
+{
+  "sites": [
+    {
+      "site": "集约配送-兴必达【西安】北院门站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 3.77,
+        "overSpeed": 3.77,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.77,
+          3.77,
+          3.77,
+          3.77,
+          3.77
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 23.43,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          23.43,
+          23.43,
+          23.43,
+          23.43,
+          23.43
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 6.82,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          6.82,
+          6.82,
+          6.82,
+          6.82,
+          6.82
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 86.16,
+        "uniformRate": 86.16,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 17.2329,
+        "uniformDen": 20,
+        "businessMonth": ""
+      }
     },
-    "speed": {
-      "score": 0,
-      "rate": 3.77,
-      "overSpeed": 3.77,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.77,
-        3.77,
-        3.77,
-        3.77,
-        3.77
-      ],
-      "numDays": {},
-      "denDays": {}
+    {
+      "site": "集约配送-兴必达【西安】东关站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 5.17,
+        "overSpeed": 5.17,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          5.17,
+          5.17,
+          5.17,
+          5.17,
+          5.17
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 21.29,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          21.29,
+          21.29,
+          21.29,
+          21.29,
+          21.29
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 2.91,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          2.91,
+          2.91,
+          2.91,
+          2.91,
+          2.91
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 93.53,
+        "uniformRate": 93.53,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 11.2235,
+        "uniformDen": 12,
+        "businessMonth": ""
+      }
     },
-    "redLight": {
-      "score": 0,
-      "rate": 23.43,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        23.43,
-        23.43,
-        23.43,
-        23.43,
-        23.43
-      ],
-      "numDays": {},
-      "denDays": {}
+    {
+      "site": "集约配送-兴必达【西安】枫林华府站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 8.34,
+        "overSpeed": 8.34,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          8.34,
+          8.34,
+          8.34,
+          8.34,
+          8.34
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 22.98,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          22.98,
+          22.98,
+          22.98,
+          22.98,
+          22.98
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.93,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.93,
+          3.93,
+          3.93,
+          3.93,
+          3.93
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 76.33,
+        "uniformRate": 76.33,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 22.898300000000003,
+        "uniformDen": 30,
+        "businessMonth": ""
+      }
     },
-    "reverse": {
-      "score": 0,
-      "rate": 6.82,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        6.82,
-        6.82,
-        6.82,
-        6.82,
-        6.82
-      ],
-      "numDays": {},
-      "denDays": {}
+    {
+      "site": "兴必达【西安】八府庄站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.74,
+        "overSpeed": 4.74,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.74,
+          4.74,
+          4.74,
+          4.74,
+          4.74
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 15.61,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          15.61,
+          15.61,
+          15.61,
+          15.61,
+          15.61
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 2.82,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          2.82,
+          2.82,
+          2.82,
+          2.82,
+          2.82
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 85.55,
+        "uniformRate": 85.55,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 184.78120000000007,
+        "uniformDen": 216,
+        "businessMonth": ""
+      }
     },
-    "uniformRating": {
-      "checkRate": 86.16,
-      "uniformRate": 86.16,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 17.2329,
-      "uniformDen": 20,
-      "businessMonth": ""
+    {
+      "site": "兴必达【西安】北院门站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 3.99,
+        "overSpeed": 3.99,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.99,
+          3.99,
+          3.99,
+          3.99,
+          3.99
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 19.22,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          19.22,
+          19.22,
+          19.22,
+          19.22,
+          19.22
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.6,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 82.78,
+        "uniformRate": 82.78,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 164.72500000000008,
+        "uniformDen": 199,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】等驾坡站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.66,
+        "overSpeed": 4.66,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.66,
+          4.66,
+          4.66,
+          4.66,
+          4.66
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 12.85,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          12.85,
+          12.85,
+          12.85,
+          12.85,
+          12.85
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.67,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.67,
+          3.67,
+          3.67,
+          3.67,
+          3.67
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 82.03,
+        "uniformRate": 82.03,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 113.19889999999992,
+        "uniformDen": 138,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】东关二站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.27,
+        "overSpeed": 4.27,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.27,
+          4.27,
+          4.27,
+          4.27,
+          4.27
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 16.98,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          16.98,
+          16.98,
+          16.98,
+          16.98,
+          16.98
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 2.79,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          2.79,
+          2.79,
+          2.79,
+          2.79,
+          2.79
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 85.66,
+        "uniformRate": 85.66,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 276.6773000000002,
+        "uniformDen": 323,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】东关站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 3.15,
+        "overSpeed": 3.15,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.15,
+          3.15,
+          3.15,
+          3.15,
+          3.15
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 20.2,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          20.2,
+          20.2,
+          20.2,
+          20.2,
+          20.2
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 2.73,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          2.73,
+          2.73,
+          2.73,
+          2.73,
+          2.73
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 89.55,
+        "uniformRate": 89.55,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 312.5251999999997,
+        "uniformDen": 349,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】杜陵邑站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 5.34,
+        "overSpeed": 5.34,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          5.34,
+          5.34,
+          5.34,
+          5.34,
+          5.34
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 12.96,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          12.96,
+          12.96,
+          12.96,
+          12.96,
+          12.96
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 4.73,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.73,
+          4.73,
+          4.73,
+          4.73,
+          4.73
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 82.77,
+        "uniformRate": 82.77,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 163.88830000000007,
+        "uniformDen": 198,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】枫林华府站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.49,
+        "overSpeed": 4.49,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.49,
+          4.49,
+          4.49,
+          4.49,
+          4.49
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 15.98,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          15.98,
+          15.98,
+          15.98,
+          15.98,
+          15.98
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.36,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.36,
+          3.36,
+          3.36,
+          3.36,
+          3.36
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 86.14,
+        "uniformRate": 86.14,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 243.78600000000003,
+        "uniformDen": 283,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】汉城站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.68,
+        "overSpeed": 4.68,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.68,
+          4.68,
+          4.68,
+          4.68,
+          4.68
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 13.26,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          13.26,
+          13.26,
+          13.26,
+          13.26,
+          13.26
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.43,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.43,
+          3.43,
+          3.43,
+          3.43,
+          3.43
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 85.27,
+        "uniformRate": 85.27,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 352.1639,
+        "uniformDen": 413,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】河址西站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.74,
+        "overSpeed": 4.74,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.74,
+          4.74,
+          4.74,
+          4.74,
+          4.74
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 10.23,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          10.23,
+          10.23,
+          10.23,
+          10.23,
+          10.23
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.04,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.04,
+          3.04,
+          3.04,
+          3.04,
+          3.04
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 87.32,
+        "uniformRate": 87.32,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 223.53849999999994,
+        "uniformDen": 256,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】南稍门站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 3.31,
+        "overSpeed": 3.31,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.31,
+          3.31,
+          3.31,
+          3.31,
+          3.31
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 18.03,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          18.03,
+          18.03,
+          18.03,
+          18.03,
+          18.03
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 4.07,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.07,
+          4.07,
+          4.07,
+          4.07,
+          4.07
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 82.22,
+        "uniformRate": 82.22,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 365.8688000000001,
+        "uniformDen": 445,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】庆安站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.17,
+        "overSpeed": 4.17,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.17,
+          4.17,
+          4.17,
+          4.17,
+          4.17
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 20.49,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          20.49,
+          20.49,
+          20.49,
+          20.49,
+          20.49
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 3.36,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          3.36,
+          3.36,
+          3.36,
+          3.36,
+          3.36
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 81.78,
+        "uniformRate": 81.78,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 281.30989999999997,
+        "uniformDen": 344,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】田园都市站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 4.69,
+        "overSpeed": 4.69,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.69,
+          4.69,
+          4.69,
+          4.69,
+          4.69
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 12.45,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          12.45,
+          12.45,
+          12.45,
+          12.45,
+          12.45
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 4.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          4.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 83.01,
+        "uniformRate": 83.01,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 137.79670000000002,
+        "uniformDen": 166,
+        "businessMonth": ""
+      }
+    },
+    {
+      "site": "兴必达【西安】鱼化寨站",
+      "helmet": {
+        "score": 0,
+        "rate": 100.0,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "speed": {
+        "score": 0,
+        "rate": 6.05,
+        "overSpeed": 6.05,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          6.05,
+          6.05,
+          6.05,
+          6.05,
+          6.05
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "redLight": {
+        "score": 0,
+        "rate": 15.89,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          15.89,
+          15.89,
+          15.89,
+          15.89,
+          15.89
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "reverse": {
+        "score": 0,
+        "rate": 4.52,
+        "weekVal": 0,
+        "weekTrend": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "days": [
+          4.52,
+          4.52,
+          4.52,
+          4.52,
+          4.52
+        ],
+        "numDays": {},
+        "denDays": {}
+      },
+      "uniformRating": {
+        "checkRate": 78.66,
+        "uniformRate": 78.66,
+        "score": 0,
+        "checkNum": 0,
+        "checkDen": 0,
+        "uniformNum": 172.26350000000008,
+        "uniformDen": 219,
+        "businessMonth": ""
+      }
     }
-  },
-  {
-    "site": "集约配送-兴必达【西安】东关站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 5.17,
-      "overSpeed": 5.17,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        5.17,
-        5.17,
-        5.17,
-        5.17,
-        5.17
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 21.29,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        21.29,
-        21.29,
-        21.29,
-        21.29,
-        21.29
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 2.91,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        2.91,
-        2.91,
-        2.91,
-        2.91,
-        2.91
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 93.53,
-      "uniformRate": 93.53,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 11.2235,
-      "uniformDen": 12,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "集约配送-兴必达【西安】枫林华府站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 8.34,
-      "overSpeed": 8.34,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        8.34,
-        8.34,
-        8.34,
-        8.34,
-        8.34
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 22.98,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        22.98,
-        22.98,
-        22.98,
-        22.98,
-        22.98
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.93,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.93,
-        3.93,
-        3.93,
-        3.93,
-        3.93
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 76.33,
-      "uniformRate": 76.33,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 22.898300000000003,
-      "uniformDen": 30,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】八府庄站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.74,
-      "overSpeed": 4.74,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.74,
-        4.74,
-        4.74,
-        4.74,
-        4.74
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 15.61,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        15.61,
-        15.61,
-        15.61,
-        15.61,
-        15.61
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 2.82,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        2.82,
-        2.82,
-        2.82,
-        2.82,
-        2.82
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 85.55,
-      "uniformRate": 85.55,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 184.78120000000007,
-      "uniformDen": 216,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】北院门站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 3.99,
-      "overSpeed": 3.99,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.99,
-        3.99,
-        3.99,
-        3.99,
-        3.99
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 19.22,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        19.22,
-        19.22,
-        19.22,
-        19.22,
-        19.22
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.6,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.6,
-        3.6,
-        3.6,
-        3.6,
-        3.6
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 82.78,
-      "uniformRate": 82.78,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 164.72500000000008,
-      "uniformDen": 199,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】等驾坡站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.66,
-      "overSpeed": 4.66,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.66,
-        4.66,
-        4.66,
-        4.66,
-        4.66
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 12.85,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        12.85,
-        12.85,
-        12.85,
-        12.85,
-        12.85
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.67,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.67,
-        3.67,
-        3.67,
-        3.67,
-        3.67
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 82.03,
-      "uniformRate": 82.03,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 113.19889999999992,
-      "uniformDen": 138,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】东关二站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.27,
-      "overSpeed": 4.27,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.27,
-        4.27,
-        4.27,
-        4.27,
-        4.27
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 16.98,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        16.98,
-        16.98,
-        16.98,
-        16.98,
-        16.98
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 2.79,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        2.79,
-        2.79,
-        2.79,
-        2.79,
-        2.79
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 85.66,
-      "uniformRate": 85.66,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 276.6773000000002,
-      "uniformDen": 323,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】东关站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 3.15,
-      "overSpeed": 3.15,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.15,
-        3.15,
-        3.15,
-        3.15,
-        3.15
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 20.2,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        20.2,
-        20.2,
-        20.2,
-        20.2,
-        20.2
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 2.73,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        2.73,
-        2.73,
-        2.73,
-        2.73,
-        2.73
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 89.55,
-      "uniformRate": 89.55,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 312.5251999999997,
-      "uniformDen": 349,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】杜陵邑站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 5.34,
-      "overSpeed": 5.34,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        5.34,
-        5.34,
-        5.34,
-        5.34,
-        5.34
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 12.96,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        12.96,
-        12.96,
-        12.96,
-        12.96,
-        12.96
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 4.73,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.73,
-        4.73,
-        4.73,
-        4.73,
-        4.73
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 82.77,
-      "uniformRate": 82.77,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 163.88830000000007,
-      "uniformDen": 198,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】枫林华府站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.49,
-      "overSpeed": 4.49,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.49,
-        4.49,
-        4.49,
-        4.49,
-        4.49
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 15.98,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        15.98,
-        15.98,
-        15.98,
-        15.98,
-        15.98
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.36,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.36,
-        3.36,
-        3.36,
-        3.36,
-        3.36
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 86.14,
-      "uniformRate": 86.14,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 243.78600000000003,
-      "uniformDen": 283,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】汉城站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.68,
-      "overSpeed": 4.68,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.68,
-        4.68,
-        4.68,
-        4.68,
-        4.68
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 13.26,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        13.26,
-        13.26,
-        13.26,
-        13.26,
-        13.26
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.43,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.43,
-        3.43,
-        3.43,
-        3.43,
-        3.43
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 85.27,
-      "uniformRate": 85.27,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 352.1639,
-      "uniformDen": 413,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】河址西站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.74,
-      "overSpeed": 4.74,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.74,
-        4.74,
-        4.74,
-        4.74,
-        4.74
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 10.23,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        10.23,
-        10.23,
-        10.23,
-        10.23,
-        10.23
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.04,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.04,
-        3.04,
-        3.04,
-        3.04,
-        3.04
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 87.32,
-      "uniformRate": 87.32,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 223.53849999999994,
-      "uniformDen": 256,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】南稍门站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 3.31,
-      "overSpeed": 3.31,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.31,
-        3.31,
-        3.31,
-        3.31,
-        3.31
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 18.03,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        18.03,
-        18.03,
-        18.03,
-        18.03,
-        18.03
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 4.07,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.07,
-        4.07,
-        4.07,
-        4.07,
-        4.07
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 82.22,
-      "uniformRate": 82.22,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 365.8688000000001,
-      "uniformDen": 445,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】庆安站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.17,
-      "overSpeed": 4.17,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.17,
-        4.17,
-        4.17,
-        4.17,
-        4.17
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 20.49,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        20.49,
-        20.49,
-        20.49,
-        20.49,
-        20.49
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 3.36,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        3.36,
-        3.36,
-        3.36,
-        3.36,
-        3.36
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 81.78,
-      "uniformRate": 81.78,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 281.30989999999997,
-      "uniformDen": 344,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】田园都市站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 4.69,
-      "overSpeed": 4.69,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.69,
-        4.69,
-        4.69,
-        4.69,
-        4.69
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 12.45,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        12.45,
-        12.45,
-        12.45,
-        12.45,
-        12.45
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 4.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.0,
-        4.0,
-        4.0,
-        4.0,
-        4.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 83.01,
-      "uniformRate": 83.01,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 137.79670000000002,
-      "uniformDen": 166,
-      "businessMonth": ""
-    }
-  },
-  {
-    "site": "兴必达【西安】鱼化寨站",
-    "helmet": {
-      "score": 0,
-      "rate": 100.0,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "speed": {
-      "score": 0,
-      "rate": 6.05,
-      "overSpeed": 6.05,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        6.05,
-        6.05,
-        6.05,
-        6.05,
-        6.05
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "redLight": {
-      "score": 0,
-      "rate": 15.89,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        15.89,
-        15.89,
-        15.89,
-        15.89,
-        15.89
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "reverse": {
-      "score": 0,
-      "rate": 4.52,
-      "weekVal": 0,
-      "weekTrend": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "days": [
-        4.52,
-        4.52,
-        4.52,
-        4.52,
-        4.52
-      ],
-      "numDays": {},
-      "denDays": {}
-    },
-    "uniformRating": {
-      "checkRate": 78.66,
-      "uniformRate": 78.66,
-      "score": 0,
-      "checkNum": 0,
-      "checkDen": 0,
-      "uniformNum": 172.26350000000008,
-      "uniformDen": 219,
-      "businessMonth": ""
-    }
-  }
-]
+  ],
+  "escort_rate": 95.19
+}

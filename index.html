@@ -15903,10 +15903,16 @@ function exportTableToExcel(tableId, filename) {
         return r.json();
       })
       .then(function(summaryData) {
-        if (!Array.isArray(summaryData) || !summaryData.length) throw new Error('站点摘要数据为空');
+        if (!summaryData) throw new Error('站点摘要数据为空');
+        // 支持新格式（对象）和旧格式（数组）
+        var sites = Array.isArray(summaryData) ? summaryData : (summaryData.sites || []);
+        var escortRate = summaryData.escort_rate || null;
+        if (!sites.length) throw new Error('站点摘要数据为空');
         // 直接设置 currentData（前端 renderTable 需要的格式）
-        currentData = JSON.parse(JSON.stringify(summaryData));
-        currentDataWebmaster = JSON.parse(JSON.stringify(summaryData));
+        currentData = JSON.parse(JSON.stringify(sites));
+        currentDataWebmaster = JSON.parse(JSON.stringify(sites));
+        // 保存护航覆盖率供 renderWorkbench 使用
+        window._escortRate = escortRate;
         status.textContent = '数据已加载，正在渲染...';
         // 渲染表格和工作台
         renderTable(currentData, '');
@@ -15918,7 +15924,7 @@ function exportTableToExcel(tableId, filename) {
           if (workbenchBtn) workbenchBtn.click();
         }, 200);
         status.textContent = '✓ 数据同步完成！已更新 ' + Date().toLocaleString('zh-CN', {hour12:false});
-        showUploadStatus('✓ 数据同步完成（' + summaryData.length + '个站点）', '#27ae60', 15000);
+        showUploadStatus('✓ 数据同步完成（' + sites.length + '个站点）', '#27ae60', 15000);
       })
       .catch(function(error) {
         // 站点摘要不可用，回退到原始 data_pack.json 解析
