@@ -15603,25 +15603,16 @@ function exportTableToExcel(tableId, filename) {
     while(days.length<7){ var first=new Date(now); first.setDate(now.getDate()-(days.length+1)); days.unshift((first.getMonth()+1)+'/'+first.getDate()); }
     document.getElementById('wbTrendChart').innerHTML = trendChartSvg(days);
 
-    fetch('/api/status').then(function(r){return r.json();}).then(function(state) {
-      var sources = state.sources || [];
-      var ok = sources.filter(function(s){return s.status === 'success';}).length;
-      document.getElementById('wbSourceCount').textContent = ok + '/' + sources.length;
-      document.getElementById('wbSourceHint').textContent = sources.length ? '最近一次同步' : '暂无同步记录';
-      document.getElementById('wbTaskCount').textContent = ok + '/' + sources.length;
-      document.getElementById('wbTaskHint').textContent = ok === sources.length && sources.length ? '任务已完成' : '仍有任务待处理';
-      document.getElementById('wbPushState').textContent = state.bot && state.bot.connected ? '已连接' : '已配置';
-      var items = sources.slice(0,6);
-      var html = items.map(function(s,i) {
-        var good = s.status === 'success';
-        var time=(s.updated_at || s.last_run_at || '').slice(11,16) || ('07:'+(2+i*5<10?'0':'')+(2+i*5));
-        return '<div class="wb-timeline-item '+(good?'':'is-bad')+'" data-time="'+esc(time)+'"><i></i><div><strong>'+esc(s.source_name || s.source_id || '数据源')+'</strong><span>'+esc(compactStatusMessage(s.message || s.status))+'</span></div><em>'+esc(s.row_count == null ? '—' : s.row_count+' 行')+'</em></div>';
-      }).join('') || '<div class="wb-empty">暂无同步任务</div>';
-      document.getElementById('wbTimeline').innerHTML = html;
-      document.getElementById('wbHealthList').innerHTML = html.replace(/wb-timeline-item/g,'wb-health-item');
-    }).catch(function() {
-      document.getElementById('wbSourceHint').textContent = '状态读取失败';
-    });
+    // 静态托管模式：使用已加载的数据渲染工作台
+    var siteCount = (currentData && currentData.length) ? currentData.length : 0;
+    document.getElementById('wbSourceCount').textContent = siteCount ? siteCount + '/12' : '—';
+    document.getElementById('wbSourceHint').textContent = siteCount ? '数据已加载' : '暂无同步记录';
+    document.getElementById('wbTaskCount').textContent = siteCount ? siteCount + '/12' : '—';
+    document.getElementById('wbTaskHint').textContent = siteCount ? '数据已同步' : '仍有任务待处理';
+    document.getElementById('wbPushState').textContent = '云端模式';
+    var timelineHtml = siteCount ? '<div class="wb-timeline-item" data-time="07:05"><i></i><div><strong>数据源同步</strong><span>从 GitHub 加载 site_summary.json</span></div><em>' + siteCount + ' 站</em></div>' : '<div class="wb-empty">暂无同步任务</div>';
+    document.getElementById('wbTimeline').innerHTML = timelineHtml;
+    document.getElementById('wbHealthList').innerHTML = timelineHtml.replace(/wb-timeline-item/g,'wb-health-item');
   }
 
   ensureWorkbenchIcons();
