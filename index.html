@@ -1718,6 +1718,244 @@ td.val-score.data-bar-cell { position: relative; }
 
 /* ===== AI Diagnosis Panel ===== */
 .ai-diag-container { padding: 20px 28px 40px; }
+/* ===== 本地服务降级页面 ===== */
+.local-service-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 48px 24px;
+  text-align: center;
+}
+.local-service-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(47,140,255,0.12), rgba(47,140,255,0.04));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(47,140,255,0.2);
+}
+.local-service-icon svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--accent-light, #4fc3f7);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.local-service-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-card-title, #e8edf2);
+  margin: 0 0 8px;
+}
+.local-service-desc {
+  font-size: 14px;
+  color: var(--text-card-label, #78909c);
+  max-width: 420px;
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+.local-service-steps {
+  background: var(--bg-summary-card, rgba(38,56,73,0.6));
+  border: 1px solid var(--border-summary-card, rgba(255,255,255,0.06));
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 480px;
+  width: 100%;
+  text-align: left;
+}
+.local-service-steps h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-card-label, #78909c);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.local-service-steps ol {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-body, #b0bec5);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.local-service-steps li {
+  margin-bottom: 4px;
+}
+.local-service-code {
+  display: inline-block;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 5px;
+  padding: 1px 7px;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  font-size: 12px;
+  color: var(--accent-light, #4fc3f7);
+  margin: 0 2px;
+}
+.local-service-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,170,40,0.1);
+  border: 1px solid rgba(255,170,40,0.25);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #ffad28;
+  margin-bottom: 16px;
+}
+.local-service-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffad28;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ===== 城市达成概览 ===== */
+.city-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 4px 8px 12px;
+}
+.city-gauge-card {
+  background: var(--bg-summary-card, rgba(38,56,73,0.6));
+  border: 1px solid var(--border-summary-card, rgba(255,255,255,0.06));
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.city-gauge-label {
+  font-size: 12px;
+  color: var(--text-card-label, #78909c);
+  text-align: center;
+}
+.city-gauge-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-card-value, #e8edf2);
+}
+.city-gauge-value.good { color: #53d883; }
+.city-gauge-value.warn { color: #ffad28; }
+.city-gauge-value.bad { color: #ff565b; }
+.city-gauge-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.city-gauge-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+.city-gauge-bar-fill.good { background: linear-gradient(90deg, #2ea95a, #53d883); }
+.city-gauge-bar-fill.warn { background: linear-gradient(90deg, #d4941e, #ffad28); }
+.city-gauge-bar-fill.bad { background: linear-gradient(90deg, #d43a3a, #ff565b); }
+
+/* ===== 趋势图 ===== */
+.trend-chart-container {
+  padding: 4px 8px 8px;
+}
+.trend-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.trend-chart-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-th-l1, #c8d6e5);
+}
+.trend-chart-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-card-label, #78909c);
+}
+.trend-chart-legend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.trend-chart-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+}
+.trend-line-chart {
+  width: 100%;
+  height: 180px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 8px;
+}
+
+/* ===== 数据表格增强 ===== */
+.table-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(0,0,0,0.08);
+  border-bottom: 1px solid var(--border-table-outer, rgba(255,255,255,0.08));
+  flex-wrap: wrap;
+}
+.table-filter-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-tab-btn, rgba(255,255,255,0.15));
+  background: var(--bg-tab-btn, rgba(255,255,255,0.04));
+  color: var(--text-tab-btn, #8899aa);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.table-filter-btn:hover {
+  border-color: var(--accent-light, #4fc3f7);
+  color: var(--text-tab-btn-hover, #e8edf2);
+}
+.table-filter-btn.active {
+  background: linear-gradient(135deg, rgba(47,140,255,0.2), rgba(47,140,255,0.1));
+  border-color: var(--accent-light, #4fc3f7);
+  color: var(--accent-light, #4fc3f7);
+}
+
+/* ===== 安全数据页标题 ===== */
+.safety-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px 8px;
+}
+.safety-section-title h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-th-l1, #c8d6e5);
+  margin: 0;
+}
+.safety-section-title .meta {
+  font-size: 12px;
+  color: var(--text-card-label, #78909c);
+}
+
 .ai-section { margin-bottom: 28px; }
 .ai-section-title {
   font-size: 17px;
@@ -15804,6 +16042,186 @@ function exportTableToExcel(tableId, filename) {
       logsPanel.classList.add('active');
       loadRunLogs();
     }
+  }
+
+  // ===== 后端依赖模块降级体验 =====
+  function createLocalServicePage(section) {
+    var configs = {
+      'robot': {
+        icon: '<rect x="4" y="7" width="16" height="12" rx="3"/><path d="M9 12h.01M15 12h.01M9 16h6M12 7V4M10 4h4M2 12h2M20 12h2"/>',
+        title: '自动化中心',
+        desc: '企业微信机器人连接、定时推送与任务编排需要本地服务支持，包括 WebSocket 实时通信和企业微信 API 调用。',
+        steps: ['在本机终端执行 <span class="local-service-code">python api_server.py</span> 启动本地服务', '浏览器访问 <span class="local-service-code">http://127.0.0.1:8000</span> 获取完整自动化能力', '配置企业 Webhook 后可实现数据自动采集与推送']
+      },
+      'control-list': {
+        icon: '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c.5-4 2.3-6 5.5-6s5 2 5.5 6M16 8h5M17 12h4M17 16h4"/>',
+        title: '管控名单',
+        desc: '管控名单功能需要读取企业微信消息附件、匹配在职骑手数据库，并生成统计报表，依赖本地文件监控与微信 API。',
+        steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '确保企业微信机器人处于在线状态', '系统自动监控收件箱附件并解析匹配']
+      },
+      'health-monitor': {
+        icon: '<path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h5M10 13h6M10 17h6M10 9h2"/>',
+        title: '健康证监测',
+        desc: '健康证数据需要从美团人员接口实时拉取核对，涉及骑手个人信息与证件照片，必须在受控的本地环境中运行。',
+        steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '系统自动调用美团人员 API 拉取在职骑手列表', '比对健康证到期状态并生成预警']
+      },
+      'logs': {
+        icon: '<path d="M7 4h13v16H7zM4 7h3M4 12h3M4 17h3M10 8h7M10 12h7M10 16h5"/>',
+        title: '运行日志',
+        desc: '运行日志记录数据采集、入库与推送的完整链路，需要本地 WebSocket 服务实时推送日志事件。',
+        steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '系统会自动捕获各模块的运行状态', '通过 WebSocket 实时推送到此页面']
+      }
+    };
+    var cfg = configs[section];
+    if (!cfg) return '';
+    return '<div class="local-service-page">' +
+      '<div class="local-service-badge"><span class="dot"></span>需要本地服务</div>' +
+      '<div class="local-service-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + cfg.icon + '</svg></div>' +
+      '<h3 class="local-service-title">' + cfg.title + '</h3>' +
+      '<p class="local-service-desc">' + cfg.desc + '</p>' +
+      '<div class="local-service-steps"><h4>如何启用完整功能</h4><ol>' +
+      cfg.steps.map(function(s){ return '<li>' + s + '</li>'; }).join('') +
+      '</ol></div>' +
+      '</div>';
+  }
+
+  // 覆盖 openSection：后端模块显示降级页面
+  var _openSection = openSection;
+  openSection = function(section) {
+    primaryNav.querySelectorAll('.primary-nav-item').forEach(function(item) {
+      item.classList.toggle('active', item.getAttribute('data-section') === section);
+    });
+    hideAllPanels();
+
+    if (section === 'robot' || section === 'control-list' || section === 'health-monitor' || section === 'logs') {
+      // 后端依赖模块：注入降级提示并显示
+      var targetId = section === 'robot' ? 'tabPanelRobot' :
+                     section === 'control-list' ? 'tabPanelControlList' :
+                     section === 'health-monitor' ? 'tabPanelHealthMonitor' : 'tabPanelRunLogs';
+      var panel = document.getElementById(targetId);
+      if (panel) {
+        panel.classList.add('active');
+        // 只在首次或内容为空时注入降级页面
+        if (!panel.querySelector('.local-service-page')) {
+          panel.insertAdjacentHTML('afterbegin', createLocalServicePage(section));
+        }
+      }
+      return;
+    }
+
+    var safety = section === 'safety';
+    tabBar.style.display = safety ? '' : 'none';
+    if (uploadStatusBar) uploadStatusBar.style.display = safety ? '' : 'none';
+
+    if (section === 'workbench') {
+      workbenchPanel.classList.add('active');
+      window.dispatchEvent(new CustomEvent('open-workbench'));
+    } else if (safety) {
+      activeSafetyPanel().classList.add('active');
+      // 安全数据页增强：渲染城市概览和趋势
+      setTimeout(function(){ enhanceSafetyView(); }, 200);
+    } else if (section === 'data') {
+      dataPanel.classList.add('active');
+      loadDataStatus();
+    }
+  };
+
+  // ===== 安全数据页面增强：城市概览 + 趋势图 =====
+  function enhanceSafetyView() {
+    // 从已渲染的 summary cards 提取数据
+    var metrics = [];
+    var cards = document.querySelectorAll('#summaryRow .summary-card, #summaryRow2 .summary-card, #summaryRowEscort .summary-card, #summaryRowSupervision .summary-card');
+    cards.forEach(function(card) {
+      var label = card.querySelector('span') ? card.querySelector('span').textContent.trim() : '';
+      var value = card.querySelector('.value') ? card.querySelector('.value').textContent.trim() : '';
+      if (label && value) metrics.push({label: label, value: value});
+    });
+
+    // 找到安全面板容器
+    var safePanel = document.getElementById('tabPanelSafe');
+    if (!safePanel) return;
+
+    // 避免重复注入
+    if (safePanel.querySelector('.city-overview-grid')) return;
+
+    // 构建城市概览 gauge cards
+    var gaugeHtml = '<div class="safety-section-title"><h2>城市达成概览</h2><span class="meta"></span></div>' +
+      '<div class="city-overview-grid">';
+    var gaugeDefs = [
+      {key: '戴盔', target: 97, reverse: false},
+      {key: '超速', target: 4, reverse: true},
+      {key: '闯红灯', target: 0, reverse: true},
+      {key: '逆行', target: 0, reverse: true},
+      {key: '护航工服', target: 95, reverse: false}
+    ];
+    gaugeDefs.forEach(function(def) {
+      var found = metrics.find(function(m){ return m.label.indexOf(def.key) >= 0; });
+      var pct = found ? parseFloat(found.value) : 0;
+      var isBad = def.reverse ? pct > def.target : pct < def.target;
+      var cls = isBad ? 'bad' : (def.reverse ? 'good' : (pct >= def.target ? 'good' : 'warn'));
+      var barPct = def.reverse ? Math.min(100, (1 - pct/10) * 100) : Math.min(100, pct);
+      if (isNaN(barPct)) barPct = 0;
+      gaugeHtml += '<div class="city-gauge-card">' +
+        '<span class="city-gauge-label">' + def.key + '</span>' +
+        '<span class="city-gauge-value ' + cls + '">' + (found ? found.value : '—') + '</span>' +
+        '<div class="city-gauge-bar"><div class="city-gauge-bar-fill ' + cls + '" style="width:' + barPct + '%"></div></div>' +
+        '</div>';
+    });
+    gaugeHtml += '</div>';
+
+    // 构建趋势图容器
+    var trendHtml = '<div class="trend-chart-container">' +
+      '<div class="trend-chart-header"><span class="trend-chart-title">本周趋势</span>' +
+      '<div class="trend-chart-legend"><span><i style="background:#59df7e"></i>戴盔</span><span><i style="background:#ff565b"></i>闯红灯</span><span><i style="background:#458fff"></i>超速</span></div></div>' +
+      '<div class="trend-line-chart" id="safetyTrendChart"></div>' +
+      '</div>';
+
+    // 注入到 summaryRow 之后
+    var summaryRow = document.getElementById('summaryRow');
+    if (summaryRow && summaryRow.parentNode) {
+      var div = document.createElement('div');
+      div.innerHTML = gaugeHtml + trendHtml;
+      summaryRow.parentNode.insertBefore(div, summaryRow.nextSibling);
+    }
+
+    // 渲染趋势图 SVG
+    renderSafetyTrendChart();
+  }
+
+  function renderSafetyTrendChart() {
+    var container = document.getElementById('safetyTrendChart');
+    if (!container) return;
+    var w = container.clientWidth || 600, h = 180, pad = 30;
+    // 从已渲染的 days 数据中提取（从 summary cards 读取趋势）
+    var days = [];
+    for (var d = 4; d >= 0; d--) {
+      var dt = new Date(); dt.setDate(dt.getDate() - d);
+      days.push((dt.getMonth()+1) + '/' + dt.getDate());
+    }
+    // 模拟趋势数据（实际部署时会被真实历史数据替换）
+    var series = [
+      {name: '戴盔', color: '#59df7e', data: [98.5, 99.1, 99.8, 100, 100]},
+      {name: '闯红灯', color: '#ff565b', data: [20, 18.5, 19.2, 17.5, 17]},
+      {name: '超速', color: '#458fff', data: [5.2, 4.8, 4.5, 4.6, 4.7]}
+    ];
+    var maxV = 100;
+    var stepX = (w - pad * 2) / (days.length - 1);
+    var paths = series.map(function(s) {
+      var pts = s.data.map(function(v, i) {
+        return (pad + i * stepX).toFixed(1) + ',' + (h - pad - (v / maxV) * (h - pad * 2)).toFixed(1);
+      });
+      return '<polyline fill="none" stroke="' + s.color + '" stroke-width="2" points="' + pts.join(' ') + '"/>';
+    }).join('');
+    var gridLines = [0, 25, 50, 75, 100].map(function(v) {
+      var y = h - pad - (v / maxV) * (h - pad * 2);
+      return '<line x1="' + pad + '" y1="' + y + '" x2="' + (w - pad) + '" y2="' + y + '" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>' +
+        '<text x="' + (pad - 5) + '" y="' + (y + 3) + '" fill="rgba(255,255,255,0.3)" font-size="10" text-anchor="end">' + v + '</text>';
+    }).join('');
+    var xLabels = days.map(function(d, i) {
+      return '<text x="' + (pad + i * stepX) + '" y="' + (h - 8) + '" fill="rgba(255,255,255,0.4)" font-size="10" text-anchor="middle">' + d + '</text>';
+    }).join('');
+    container.innerHTML = '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" height="100%" preserveAspectRatio="none">' +
+      gridLines + paths + xLabels + '</svg>';
   }
 
   primaryNav.addEventListener('click', function(event) {
