@@ -15604,13 +15604,13 @@ function exportTableToExcel(tableId, filename) {
     document.getElementById('wbTrendChart').innerHTML = trendChartSvg(days);
 
     // 静态托管模式：使用已加载的数据渲染工作台
-    var siteCount = (currentData && currentData.length) ? currentData.length : 0;
-    document.getElementById('wbSourceCount').textContent = siteCount ? siteCount + '/12' : '—';
-    document.getElementById('wbSourceHint').textContent = siteCount ? '数据已加载' : '暂无同步记录';
-    document.getElementById('wbTaskCount').textContent = siteCount ? siteCount + '/12' : '—';
-    document.getElementById('wbTaskHint').textContent = siteCount ? '数据已同步' : '仍有任务待处理';
+    var stationCount = textNumber('#summaryRow .summary-card:first-child .value','0');
+    document.getElementById('wbSourceCount').textContent = stationCount + '/12';
+    document.getElementById('wbSourceHint').textContent = stationCount !== '0' ? '数据已加载' : '暂无同步记录';
+    document.getElementById('wbTaskCount').textContent = stationCount + '/12';
+    document.getElementById('wbTaskHint').textContent = stationCount !== '0' ? '数据已同步' : '仍有任务待处理';
     document.getElementById('wbPushState').textContent = '云端模式';
-    var timelineHtml = siteCount ? '<div class="wb-timeline-item" data-time="07:05"><i></i><div><strong>数据源同步</strong><span>从 GitHub 加载 site_summary.json</span></div><em>' + siteCount + ' 站</em></div>' : '<div class="wb-empty">暂无同步任务</div>';
+    var timelineHtml = stationCount !== '0' ? '<div class="wb-timeline-item" data-time="07:05"><i></i><div><strong>数据源同步</strong><span>从 GitHub 加载 site_summary.json</span></div><em>' + stationCount + ' 站</em></div>' : '<div class="wb-empty">暂无同步任务</div>';
     document.getElementById('wbTimeline').innerHTML = timelineHtml;
     document.getElementById('wbHealthList').innerHTML = timelineHtml.replace(/wb-timeline-item/g,'wb-health-item');
   }
