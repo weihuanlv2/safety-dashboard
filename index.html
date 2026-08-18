@@ -15914,6 +15914,16 @@ function exportTableToExcel(tableId, filename) {
       .then(function() {
         status.textContent = '✓ 数据同步完成！已更新 ' + Date().toLocaleString('zh-CN', {hour12:false});
         showUploadStatus('✓ 数据同步完成', '#27ae60', 15000);
+        // 同步完成后自动刷新当前看板视图
+        try {
+          var hash = window.location.hash || '';
+          if (hash.indexOf('safe') > -1 || hash.indexOf('red') > -1 || hash.indexOf('speed') > -1) {
+            renderTable(currentData, '');
+            renderTable(currentDataWebmaster, '2');
+          }
+          // 触发 hashchange 事件让所有模块重新渲染
+          window.dispatchEvent(new HashChangeEvent('hashchange'));
+        } catch(e) { console.warn('自动刷新视图失败:', e); }
       })
       .catch(function(error) {
         status.textContent = '同步失败：' + error.message;
