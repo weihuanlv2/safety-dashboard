@@ -14834,6 +14834,34 @@ document.getElementById('downloadBtn').addEventListener('click', async function(
    ================================================================ */
 // 后台 data_pack.json 是刷新恢复的唯一主数据源；localStorage 容量仅约 5MB，
 // 无法可靠保存当前几十 MB 的数据，因此不再优先读取浏览器缓存。
+// 站点摘要格式 → renderTable 期望格式转换（兼容简单格式和完整格式）
+function transformSiteSummary(sites) {
+  return sites.map(function(s) {
+    if (s.helmet && s.helmet.rate != null) {
+      return {
+        site: s.site || '',
+        helmet: s.helmet || {},
+        speed: s.speed || {},
+        redLight: s.redLight || {},
+        reverse: s.reverse || {},
+        uniformRating: s.uniformRating || {}
+      };
+    }
+    var hr = s.helmet_rate != null ? Number(s.helmet_rate) : null;
+    var sr = s.speed_rate != null ? Number(s.speed_rate) : null;
+    var rr = s.red_light_rate != null ? Number(s.red_light_rate) : null;
+    var revr = s.reverse_rate != null ? Number(s.reverse_rate) : null;
+    var ur = s.uniform_rate != null ? Number(s.uniform_rate) : null;
+    return {
+      site: s.name || s.site || '',
+      helmet: { rate: hr, weekVal: hr, days: [hr, hr, hr, hr, hr], weekTrend: [hr] },
+      speed: { overSpeed: sr, rate: sr, weekVal: sr, days: [sr, sr, sr, sr, sr], weekTrend: [sr] },
+      redLight: { rate: rr, weekVal: rr, days: [rr, rr, rr, rr, rr], weekTrend: [rr] },
+      reverse: { rate: revr, weekVal: revr, days: [revr, revr, revr, revr, revr], weekTrend: [revr] },
+      uniformRating: { checkRate: ur, uniformRate: ur }
+    };
+  });
+}
 var _hasSavedData = false;
 if (_hasSavedData) {
   // Restore uploaded data from localStorage
@@ -16216,36 +16244,6 @@ function exportTableToExcel(tableId, filename) {
   // ── 立即同步数据源：从公开 URL 拉取数据 ──
   window.DATA_PACK_URL = 'https://raw.githubusercontent.com/weihuanlv2/safety-dashboard/main/data_pack.json';
   window.SITE_SUMMARY_URL = 'https://raw.githubusercontent.com/weihuanlv2/safety-dashboard/main/site_summary.json';
-  // 站点摘要格式 → renderTable 期望格式转换（兼容简单格式和完整格式）
-  function transformSiteSummary(sites) {
-    return sites.map(function(s) {
-      // 如果已经是完整格式（有 helmet.rate），直接使用
-      if (s.helmet && s.helmet.rate != null) {
-        return {
-          site: s.site || '',
-          helmet: s.helmet || {},
-          speed: s.speed || {},
-          redLight: s.redLight || {},
-          reverse: s.reverse || {},
-          uniformRating: s.uniformRating || {}
-        };
-      }
-      // 简单格式转换
-      var hr = s.helmet_rate != null ? Number(s.helmet_rate) : null;
-      var sr = s.speed_rate != null ? Number(s.speed_rate) : null;
-      var rr = s.red_light_rate != null ? Number(s.red_light_rate) : null;
-      var revr = s.reverse_rate != null ? Number(s.reverse_rate) : null;
-      var ur = s.uniform_rate != null ? Number(s.uniform_rate) : null;
-      return {
-        site: s.name || s.site || '',
-        helmet: { rate: hr, weekVal: hr, days: [hr, hr, hr, hr, hr], weekTrend: [hr] },
-        speed: { overSpeed: sr, rate: sr, weekVal: sr, days: [sr, sr, sr, sr, sr], weekTrend: [sr] },
-        redLight: { rate: rr, weekVal: rr, days: [rr, rr, rr, rr, rr], weekTrend: [rr] },
-        reverse: { rate: revr, weekVal: revr, days: [revr, revr, revr, revr, revr], weekTrend: [revr] },
-        uniformRating: { checkRate: ur, uniformRate: ur }
-      };
-    });
-  }
   document.getElementById('systemSyncBtn').addEventListener('click', function() {
     var button = this;
     var status = document.getElementById('systemImportStatus');
