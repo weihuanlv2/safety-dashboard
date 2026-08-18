@@ -13130,6 +13130,25 @@ async function processRefreshFiles(files) {
           formListRows = rows;
         }
         loadedCount++;
+      } else if (fname.includes('管控')) {
+        // 管控名单数据
+        if (!window._controlListRows) { window._controlListRows = rows; }
+        else { for (var ci = 1; ci < rows.length; ci++) window._controlListRows.push(rows[ci]); }
+        loadedCount++;
+      } else if (fname.includes('安全') && !hasRiderDim) {
+        // 骑手安全汇总（戴盔/速度/综合安全）
+        parseSiteDailyFile(rows, 'helmet', currentData);
+        loadedCount++;
+      } else if (fname.includes('执行')) {
+        // 骑手执行数据（注册/消毒/载具等）
+        parseSiteDailyFile(rows, 'exec', currentData);
+        loadedCount++;
+      } else if (fname.includes('充换电') || fname.includes('充电')) {
+        if (!batteryExportRows || (rows.length > 1 && rows.length >= (batteryExportRows.length || 0))) { batteryExportRows = rows; }
+        loadedCount++;
+      } else if (fname.includes('工服') || fname.includes('着装')) {
+        parseSiteDailyFile(rows, 'uniform', currentData);
+        loadedCount++;
       } else {
         // 兜底：尝试作为主汇总表(parseUploadedData)解析
         console.log('[路由] 未匹配已知类型，尝试 parseUploadedData: ' + fname);
