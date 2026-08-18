@@ -14834,34 +14834,6 @@ document.getElementById('downloadBtn').addEventListener('click', async function(
    ================================================================ */
 // 后台 data_pack.json 是刷新恢复的唯一主数据源；localStorage 容量仅约 5MB，
 // 无法可靠保存当前几十 MB 的数据，因此不再优先读取浏览器缓存。
-// 站点摘要格式 → renderTable 期望格式转换（兼容简单格式和完整格式）
-function transformSiteSummary(sites) {
-  return sites.map(function(s) {
-    if (s.helmet && s.helmet.rate != null) {
-      return {
-        site: s.site || '',
-        helmet: s.helmet || {},
-        speed: s.speed || {},
-        redLight: s.redLight || {},
-        reverse: s.reverse || {},
-        uniformRating: s.uniformRating || {}
-      };
-    }
-    var hr = s.helmet_rate != null ? Number(s.helmet_rate) : null;
-    var sr = s.speed_rate != null ? Number(s.speed_rate) : null;
-    var rr = s.red_light_rate != null ? Number(s.red_light_rate) : null;
-    var revr = s.reverse_rate != null ? Number(s.reverse_rate) : null;
-    var ur = s.uniform_rate != null ? Number(s.uniform_rate) : null;
-    return {
-      site: s.name || s.site || '',
-      helmet: { rate: hr, weekVal: hr, days: [hr, hr, hr, hr, hr], weekTrend: [hr] },
-      speed: { overSpeed: sr, rate: sr, weekVal: sr, days: [sr, sr, sr, sr, sr], weekTrend: [sr] },
-      redLight: { rate: rr, weekVal: rr, days: [rr, rr, rr, rr, rr], weekTrend: [rr] },
-      reverse: { rate: revr, weekVal: revr, days: [revr, revr, revr, revr, revr], weekTrend: [revr] },
-      uniformRating: { checkRate: ur, uniformRate: ur }
-    };
-  });
-}
 var _hasSavedData = false;
 if (_hasSavedData) {
   // Restore uploaded data from localStorage
@@ -14916,7 +14888,17 @@ if (_hasSavedData) {
     .then(function(summaryData) {
       var sites = Array.isArray(summaryData) ? summaryData : (summaryData.sites || []);
       if (!sites.length) throw new Error('站点摘要为空');
-      var transformed = transformSiteSummary(sites);
+      var transformed = sites.map(function(s) {
+        if (s.helmet && s.helmet.rate != null) {
+          return { site: s.site || '', helmet: s.helmet || {}, speed: s.speed || {}, redLight: s.redLight || {}, reverse: s.reverse || {}, uniformRating: s.uniformRating || {} };
+        }
+        var hr = s.helmet_rate != null ? Number(s.helmet_rate) : null;
+        var sr = s.speed_rate != null ? Number(s.speed_rate) : null;
+        var rr = s.red_light_rate != null ? Number(s.red_light_rate) : null;
+        var revr = s.reverse_rate != null ? Number(s.reverse_rate) : null;
+        var ur = s.uniform_rate != null ? Number(s.uniform_rate) : null;
+        return { site: s.name || s.site || '', helmet: { rate: hr, weekVal: hr, days: [hr, hr, hr, hr, hr], weekTrend: [hr] }, speed: { overSpeed: sr, rate: sr, weekVal: sr, days: [sr, sr, sr, sr, sr], weekTrend: [sr] }, redLight: { rate: rr, weekVal: rr, days: [rr, rr, rr, rr, rr], weekTrend: [rr] }, reverse: { rate: revr, weekVal: revr, days: [revr, revr, revr, revr, revr], weekTrend: [revr] }, uniformRating: { checkRate: ur, uniformRate: ur } };
+      });
       currentData = JSON.parse(JSON.stringify(transformed));
       currentDataWebmaster = JSON.parse(JSON.stringify(transformed));
       window._escortRate = summaryData.escort_rate || null;
@@ -16263,7 +16245,17 @@ function exportTableToExcel(tableId, filename) {
         var escortRate = summaryData.escort_rate || null;
         if (!sites.length) throw new Error('站点摘要数据为空');
         // 转换站点摘要格式为 renderTable 期望的格式
-        var transformed = transformSiteSummary(sites);
+        var transformed = sites.map(function(s) {
+          if (s.helmet && s.helmet.rate != null) {
+            return { site: s.site || '', helmet: s.helmet || {}, speed: s.speed || {}, redLight: s.redLight || {}, reverse: s.reverse || {}, uniformRating: s.uniformRating || {} };
+          }
+          var hr = s.helmet_rate != null ? Number(s.helmet_rate) : null;
+          var sr = s.speed_rate != null ? Number(s.speed_rate) : null;
+          var rr = s.red_light_rate != null ? Number(s.red_light_rate) : null;
+          var revr = s.reverse_rate != null ? Number(s.reverse_rate) : null;
+          var ur = s.uniform_rate != null ? Number(s.uniform_rate) : null;
+          return { site: s.name || s.site || '', helmet: { rate: hr, weekVal: hr, days: [hr, hr, hr, hr, hr], weekTrend: [hr] }, speed: { overSpeed: sr, rate: sr, weekVal: sr, days: [sr, sr, sr, sr, sr], weekTrend: [sr] }, redLight: { rate: rr, weekVal: rr, days: [rr, rr, rr, rr, rr], weekTrend: [rr] }, reverse: { rate: revr, weekVal: revr, days: [revr, revr, revr, revr, revr], weekTrend: [revr] }, uniformRating: { checkRate: ur, uniformRate: ur } };
+        });
         currentData = JSON.parse(JSON.stringify(transformed));
         currentDataWebmaster = JSON.parse(JSON.stringify(transformed));
         // 保存护航覆盖率供 renderWorkbench 使用
