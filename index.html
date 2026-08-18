@@ -15914,13 +15914,13 @@ function exportTableToExcel(tableId, filename) {
       .then(function() {
         status.textContent = '✓ 数据同步完成！已更新 ' + Date().toLocaleString('zh-CN', {hour12:false});
         showUploadStatus('✓ 数据同步完成', '#27ae60', 15000);
-        // 同步完成后自动刷新当前看板视图
+        // 同步完成后自动刷新看板视图
         try {
-          // 刷新数据表格
-          renderTable(currentData, '');
-          renderTable(currentDataWebmaster, '2');
-          // 刷新工作台核心指标（触发 open-workbench 事件让 renderWorkbench 执行）
-          window.dispatchEvent(new CustomEvent('open-workbench'));
+          // 先渲染数据表格（填充 DOM）
+          if (currentData && currentData.length) renderTable(currentData, '');
+          if (currentDataWebmaster && currentDataWebmaster.length) renderTable(currentDataWebmaster, '2');
+          // 延迟触发工作台渲染（等 DOM 更新完成）
+          setTimeout(function(){ window.dispatchEvent(new CustomEvent('open-workbench')); }, 100);
         } catch(e) { console.warn('自动刷新视图失败:', e); }
       })
       .catch(function(error) {
