@@ -16016,6 +16016,22 @@ function exportTableToExcel(tableId, filename) {
     primaryNav.querySelectorAll('.primary-nav-item').forEach(function(item) {
       item.classList.toggle('active', item.getAttribute('data-section') === section);
     });
+    // 后端依赖模块：显示降级页面
+    var localSections = {'robot': 1, 'control-list': 1, 'health-monitor': 1, 'logs': 1};
+    if (localSections[section]) {
+      hideAllPanels();
+      var panelMap = {'robot': 'tabPanelRobot', 'control-list': 'tabPanelControlList', 'health-monitor': 'tabPanelHealthMonitor', 'logs': 'tabPanelRunLogs'};
+      var panel = document.getElementById(panelMap[section]);
+      if (panel) {
+        var kids = panel.children;
+        for (var i = 0; i < kids.length; i++) kids[i].style.display = 'none';
+        if (!panel.querySelector('.local-service-page')) {
+          panel.insertAdjacentHTML('afterbegin', buildLocalServicePage(section));
+        }
+        panel.classList.add('active');
+      }
+      return;
+    }
     hideAllPanels();
     var safety = section === 'safety';
     tabBar.style.display = safety ? '' : 'none';
@@ -16026,21 +16042,72 @@ function exportTableToExcel(tableId, filename) {
       window.dispatchEvent(new CustomEvent('open-workbench'));
     } else if (safety) {
       activeSafetyPanel().classList.add('active');
+      setTimeout(function(){ injectSafetyEnhancements(); }, 300);
     } else if (section === 'data') {
       dataPanel.classList.add('active');
       loadDataStatus();
-    } else if (section === 'robot') {
-      robotPanel.classList.add('active');
-      window.dispatchEvent(new CustomEvent('open-robot-settings'));
-    } else if (section === 'control-list') {
-      controlListPanel.classList.add('active');
-      window.dispatchEvent(new CustomEvent('open-control-list'));
-    } else if (section === 'health-monitor') {
-      healthMonitorPanel.classList.add('active');
-      window.dispatchEvent(new CustomEvent('open-health-monitor'));
-    } else if (section === 'logs') {
-      logsPanel.classList.add('active');
-      loadRunLogs();
+    }
+  }
+
+  function buildLocalServicePage(section) {
+    var configs = {
+      'robot': {icon: '<rect x="4" y="7" width="16" height="12" rx="3"/><path d="M9 12h.01M15 12h.01M9 16h6M12 7V4M10 4h4M2 12h2M20 12h2"/>', title: '自动化中心', desc: '企业微信机器人连接、定时推送与任务编排需要本地服务支持，包括 WebSocket 实时通信和企业微信 API 调用。', steps: ['在本机终端执行 <span class="local-service-code">python api_server.py</span> 启动本地服务', '浏览器访问 <span class="local-service-code">http://127.0.0.1:8000</span> 获取完整自动化能力', '配置企业 Webhook 后可实现数据自动采集与推送']},
+      'control-list': {icon: '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c.5-4 2.3-6 5.5-6s5 2 5.5 6M16 8h5M17 12h4M17 16h4"/>', title: '管控名单', desc: '管控名单功能需要读取企业微信消息附件、匹配在职骑手数据库，并生成统计报表，依赖本地文件监控与微信 API。', steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '确保企业微信机器人处于在线状态', '系统自动监控收件箱附件并解析匹配']},
+      'health-monitor': {icon: '<path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h5M10 13h6M10 17h6M10 9h2"/>', title: '健康证监测', desc: '健康证数据需要从美团人员接口实时拉取核对，涉及骑手个人信息与证件照片，必须在受控的本地环境中运行。', steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '系统自动调用美团人员 API 拉取在职骑手列表', '比对健康证到期状态并生成预警']},
+      'logs': {icon: '<path d="M7 4h13v16H7zM4 7h3M4 12h3M4 17h3M10 8h7M10 12h7M10 16h5"/>', title: '运行日志', desc: '运行日志记录数据采集、入库与推送的完整链路，需要本地 WebSocket 服务实时推送日志事件。', steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '系统会自动捕获各模块的运行状态', '通过 WebSocket 实时推送到此页面']}
+    };
+    var cfg = configs[section];
+    if (!cfg) return '';
+    return '<div class="local-service-page"><div class="local-service-badge"><span class="dot"></span>需要本地服务</div><div class="local-service-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + cfg.icon + '</svg></div><h3 class="local-service-title">' + cfg.title + '</h3><p class="local-service-desc">' + cfg.desc + '</p><div class="local-service-steps"><h4>如何启用完整功能</h4><ol>' + cfg.steps.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ol></div></div>';
+  }
+
+  function injectSafetyEnhancements() {
+    var safePanel = document.getElementById('tabPanelSafe');
+    if (!safePanel || safePanel.querySelector('.city-overview-grid')) return;
+    var metrics = [];
+    var cards = safePanel.querySelectorAll('#summaryRow .summary-card, #summaryRow2 .summary-card, #summaryRowEscort .summary-card, #summaryRowSupervision .summary-card');
+    cards.forEach(function(card) {
+      var label = card.querySelector('span') ? card.querySelector('span').textContent.trim() : '';
+      var value = card.querySelector('.value') ? card.querySelector('.value').textContent.trim() : '';
+      if (label && value) metrics.push({label: label, value: value});
+    });
+    var gaugeHtml = '<div class="safety-section-title"><h2>城市达成概览</h2><span class="meta">西安全区</span></div><div class="city-overview-grid">';
+    var defs = [{key: '戴盔', target: 97, reverse: false}, {key: '超速', target: 4, reverse: true}, {key: '闯红灯', target: 0, reverse: true}, {key: '逆行', target: 0, reverse: true}, {key: '护航工服', target: 95, reverse: false}];
+    defs.forEach(function(def) {
+      var found = metrics.find(function(m){ return m.label.indexOf(def.key) >= 0; });
+      var pct = found ? parseFloat(found.value) : 0;
+      var isBad = def.reverse ? pct > def.target : pct < def.target;
+      var cls = isBad ? 'bad' : (def.reverse ? 'good' : (pct >= def.target ? 'good' : 'warn'));
+      var barPct = def.reverse ? Math.min(100, Math.max(0, (1 - pct/10) * 100)) : Math.min(100, pct);
+      if (isNaN(barPct)) barPct = 0;
+      gaugeHtml += '<div class="city-gauge-card"><span class="city-gauge-label">' + def.key + '</span><span class="city-gauge-value ' + cls + '">' + (found ? found.value : '—') + '</span><div class="city-gauge-bar"><div class="city-gauge-bar-fill ' + cls + '" style="width:' + barPct + '%"></div></div></div>';
+    });
+    gaugeHtml += '</div>';
+    var trendHtml = '<div class="trend-chart-container"><div class="trend-chart-header"><span class="trend-chart-title">本周趋势</span><div class="trend-chart-legend"><span><i style="background:#59df7e"></i>戴盔</span><span><i style="background:#ff565b"></i>闯红灯</span><span><i style="background:#458fff"></i>超速</span></div></div><div class="trend-line-chart" id="safetyTrendChart"></div></div>';
+    var summaryRow = document.getElementById('summaryRow');
+    if (summaryRow && summaryRow.parentNode) {
+      var div = document.createElement('div');
+      div.innerHTML = gaugeHtml + trendHtml;
+      summaryRow.parentNode.insertBefore(div, summaryRow.nextSibling);
+      setTimeout(function() {
+        var container = document.getElementById('safetyTrendChart');
+        if (!container) return;
+        var w = container.clientWidth || 600, h = 180, pad = 30;
+        var days = [];
+        for (var d = 4; d >= 0; d--) { var dt = new Date(); dt.setDate(dt.getDate() - d); days.push((dt.getMonth()+1) + '/' + dt.getDate()); }
+        var series = [{color: '#59df7e', data: [98.5, 99.1, 99.8, 100, 100]}, {color: '#ff565b', data: [20, 18.5, 19.2, 17.5, 17]}, {color: '#458fff', data: [5.2, 4.8, 4.5, 4.6, 4.7]}];
+        var maxV = 100, stepX = (w - pad * 2) / (days.length - 1);
+        var paths = series.map(function(s) {
+          var pts = s.data.map(function(v, i) { return (pad + i * stepX).toFixed(1) + ',' + (h - pad - (v / maxV) * (h - pad * 2)).toFixed(1); });
+          return '<polyline fill="none" stroke="' + s.color + '" stroke-width="2" points="' + pts.join(' ') + '"/>';
+        }).join('');
+        var gridLines = [0, 25, 50, 75, 100].map(function(v) {
+          var y = h - pad - (v / maxV) * (h - pad * 2);
+          return '<line x1="' + pad + '" y1="' + y + '" x2="' + (w - pad) + '" y2="' + y + '" stroke="rgba(255,255,255,0.06)" stroke-width="1"/><text x="' + (pad - 5) + '" y="' + (y + 3) + '" fill="rgba(255,255,255,0.3)" font-size="10" text-anchor="end">' + v + '</text>';
+        }).join('');
+        var xLabels = days.map(function(d, i) { return '<text x="' + (pad + i * stepX) + '" y="' + (h - 8) + '" fill="rgba(255,255,255,0.4)" font-size="10" text-anchor="middle">' + d + '</text>'; }).join('');
+        container.innerHTML = '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" height="100%" preserveAspectRatio="none">' + gridLines + paths + xLabels + '</svg>';
+      }, 50);
     }
   }
 
@@ -16210,171 +16277,6 @@ function exportTableToExcel(tableId, filename) {
 
   window.dashboardOpenSection = openSection;
   openSection('workbench');
-})();
-
-// ===== 后端依赖模块降级体验（事件拦截器） =====
-(function() {
-  var SECTIONS_NEED_LOCAL = {'robot': 1, 'control-list': 1, 'health-monitor': 1, 'logs': 1};
-  var PANEL_MAP = {
-    'robot': 'tabPanelRobot',
-    'control-list': 'tabPanelControlList',
-    'health-monitor': 'tabPanelHealthMonitor',
-    'logs': 'tabPanelRunLogs'
-  };
-  var SECTION_CONFIGS = {
-    'robot': {
-      icon: '<rect x="4" y="7" width="16" height="12" rx="3"/><path d="M9 12h.01M15 12h.01M9 16h6M12 7V4M10 4h4M2 12h2M20 12h2"/>',
-      title: '自动化中心',
-      desc: '企业微信机器人连接、定时推送与任务编排需要本地服务支持，包括 WebSocket 实时通信和企业微信 API 调用。',
-      steps: ['在本机终端执行 <span class="local-service-code">python api_server.py</span> 启动本地服务', '浏览器访问 <span class="local-service-code">http://127.0.0.1:8000</span> 获取完整自动化能力', '配置企业 Webhook 后可实现数据自动采集与推送']
-    },
-    'control-list': {
-      icon: '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c.5-4 2.3-6 5.5-6s5 2 5.5 6M16 8h5M17 12h4M17 16h4"/>',
-      title: '管控名单',
-      desc: '管控名单功能需要读取企业微信消息附件、匹配在职骑手数据库，并生成统计报表，依赖本地文件监控与微信 API。',
-      steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '确保企业微信机器人处于在线状态', '系统自动监控收件箱附件并解析匹配']
-    },
-    'health-monitor': {
-      icon: '<path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h5M10 13h6M10 17h6M10 9h2"/>',
-      title: '健康证监测',
-      desc: '健康证数据需要从美团人员接口实时拉取核对，涉及骑手个人信息与证件照片，必须在受控的本地环境中运行。',
-      steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '系统自动调用美团人员 API 拉取在职骑手列表', '比对健康证到期状态并生成预警']
-    },
-    'logs': {
-      icon: '<path d="M7 4h13v16H7zM4 7h3M4 12h3M4 17h3M10 8h7M10 12h7M10 16h5"/>',
-      title: '运行日志',
-      desc: '运行日志记录数据采集、入库与推送的完整链路，需要本地 WebSocket 服务实时推送日志事件。',
-      steps: ['启动本地服务 <span class="local-service-code">python api_server.py</span>', '系统会自动捕获各模块的运行状态', '通过 WebSocket 实时推送到此页面']
-    }
-  };
-
-  function makeLocalServicePage(section) {
-    var cfg = SECTION_CONFIGS[section];
-    if (!cfg) return '';
-    return '<div class="local-service-page">' +
-      '<div class="local-service-badge"><span class="dot"></span>需要本地服务</div>' +
-      '<div class="local-service-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + cfg.icon + '</svg></div>' +
-      '<h3 class="local-service-title">' + cfg.title + '</h3>' +
-      '<p class="local-service-desc">' + cfg.desc + '</p>' +
-      '<div class="local-service-steps"><h4>如何启用完整功能</h4><ol>' +
-      cfg.steps.map(function(s){ return '<li>' + s + '</li>'; }).join('') +
-      '</ol></div>' +
-      '</div>';
-  }
-
-  function showLocalServicePage(section) {
-    var panelId = PANEL_MAP[section];
-    if (!panelId) return false;
-    var panel = document.getElementById(panelId);
-    if (!panel) return false;
-    // 隐藏面板内所有原有内容
-    var children = panel.children;
-    for (var i = 0; i < children.length; i++) {
-      children[i].style.display = 'none';
-    }
-    // 注入降级页面
-    if (!panel.querySelector('.local-service-page')) {
-      panel.insertAdjacentHTML('afterbegin', makeLocalServicePage(section));
-    }
-    panel.classList.add('active');
-    return true;
-  }
-
-  // 拦截导航点击：后端模块 → 降级页面
- document.addEventListener('click', function(event) {
-    var item = event.target.closest('.primary-nav-item');
-    if (!item) return;
-    var section = item.getAttribute('data-section');
-    if (!SECTIONS_NEED_LOCAL[section]) return;
-    // 阻止原逻辑：隐藏所有面板 + 显示降级页面
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-    showLocalServicePage(section);
-    // 更新导航高亮
-    document.querySelectorAll('.primary-nav-item').forEach(function(nav) {
-      nav.classList.toggle('active', nav.getAttribute('data-section') === section);
-    });
-    event.stopPropagation();
-    event.preventDefault();
-  }, true); // 使用捕获阶段优先拦截
-
-  // 安全数据页面增强：城市概览 + 趋势图
-  document.getElementById('primaryNav').addEventListener('click', function(event) {
-    var item = event.target.closest('.primary-nav-item');
-    if (!item || item.getAttribute('data-section') !== 'safety') return;
-    setTimeout(function() { injectSafetyEnhancements(); }, 300);
-  });
-
-  function injectSafetyEnhancements() {
-    var safePanel = document.getElementById('tabPanelSafe');
-    if (!safePanel || safePanel.querySelector('.city-overview-grid')) return;
-    // 提取当前指标数据
-    var metrics = [];
-    var cards = safePanel.querySelectorAll('#summaryRow .summary-card, #summaryRow2 .summary-card, #summaryRowEscort .summary-card, #summaryRowSupervision .summary-card');
-    cards.forEach(function(card) {
-      var label = card.querySelector('span') ? card.querySelector('span').textContent.trim() : '';
-      var value = card.querySelector('.value') ? card.querySelector('.value').textContent.trim() : '';
-      if (label && value) metrics.push({label: label, value: value});
-    });
-    // 构建城市概览
-    var gaugeHtml = '<div class="safety-section-title"><h2>城市达成概览</h2><span class="meta">西安全区</span></div><div class="city-overview-grid">';
-    var defs = [
-      {key: '戴盔', target: 97, reverse: false},
-      {key: '超速', target: 4, reverse: true},
-      {key: '闯红灯', target: 0, reverse: true},
-      {key: '逆行', target: 0, reverse: true},
-      {key: '护航工服', target: 95, reverse: false}
-    ];
-    defs.forEach(function(def) {
-      var found = metrics.find(function(m){ return m.label.indexOf(def.key) >= 0; });
-      var pct = found ? parseFloat(found.value) : 0;
-      var isBad = def.reverse ? pct > def.target : pct < def.target;
-      var cls = isBad ? 'bad' : (def.reverse ? 'good' : (pct >= def.target ? 'good' : 'warn'));
-      var barPct = def.reverse ? Math.min(100, Math.max(0, (1 - pct/10) * 100)) : Math.min(100, pct);
-      if (isNaN(barPct)) barPct = 0;
-      gaugeHtml += '<div class="city-gauge-card"><span class="city-gauge-label">' + def.key + '</span>' +
-        '<span class="city-gauge-value ' + cls + '">' + (found ? found.value : '—') + '</span>' +
-        '<div class="city-gauge-bar"><div class="city-gauge-bar-fill ' + cls + '" style="width:' + barPct + '%"></div></div></div>';
-    });
-    gaugeHtml += '</div>';
-    // 趋势图容器
-    var trendHtml = '<div class="trend-chart-container"><div class="trend-chart-header"><span class="trend-chart-title">本周趋势</span>' +
-      '<div class="trend-chart-legend"><span><i style="background:#59df7e"></i>戴盔</span><span><i style="background:#ff565b"></i>闯红灯</span><span><i style="background:#458fff"></i>超速</span></div></div>' +
-      '<div class="trend-line-chart" id="safetyTrendChart"></div></div>';
-    // 注入
-    var summaryRow = document.getElementById('summaryRow');
-    if (summaryRow && summaryRow.parentNode) {
-      var div = document.createElement('div');
-      div.innerHTML = gaugeHtml + trendHtml;
-      summaryRow.parentNode.insertBefore(div, summaryRow.nextSibling);
-      // 渲染趋势图
-      setTimeout(function() { renderTrend(); }, 50);
-    }
-    function renderTrend() {
-      var container = document.getElementById('safetyTrendChart');
-      if (!container) return;
-      var w = container.clientWidth || 600, h = 180, pad = 30;
-      var days = [];
-      for (var d = 4; d >= 0; d--) { var dt = new Date(); dt.setDate(dt.getDate() - d); days.push((dt.getMonth()+1) + '/' + dt.getDate()); }
-      var series = [
-        {color: '#59df7e', data: [98.5, 99.1, 99.8, 100, 100]},
-        {color: '#ff565b', data: [20, 18.5, 19.2, 17.5, 17]},
-        {color: '#458fff', data: [5.2, 4.8, 4.5, 4.6, 4.7]}
-      ];
-      var maxV = 100, stepX = (w - pad * 2) / (days.length - 1);
-      var paths = series.map(function(s) {
-        var pts = s.data.map(function(v, i) { return (pad + i * stepX).toFixed(1) + ',' + (h - pad - (v / maxV) * (h - pad * 2)).toFixed(1); });
-        return '<polyline fill="none" stroke="' + s.color + '" stroke-width="2" points="' + pts.join(' ') + '"/>';
-      }).join('');
-      var gridLines = [0, 25, 50, 75, 100].map(function(v) {
-        var y = h - pad - (v / maxV) * (h - pad * 2);
-        return '<line x1="' + pad + '" y1="' + y + '" x2="' + (w - pad) + '" y2="' + y + '" stroke="rgba(255,255,255,0.06)" stroke-width="1"/><text x="' + (pad - 5) + '" y="' + (y + 3) + '" fill="rgba(255,255,255,0.3)" font-size="10" text-anchor="end">' + v + '</text>';
-      }).join('');
-      var xLabels = days.map(function(d, i) {
-        return '<text x="' + (pad + i * stepX) + '" y="' + (h - 8) + '" fill="rgba(255,255,255,0.4)" font-size="10" text-anchor="middle">' + d + '</text>';
-      }).join('');
-      container.innerHTML = '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" height="100%" preserveAspectRatio="none">' + gridLines + paths + xLabels + '</svg>';
-    }
-  }
 })();
 
 
