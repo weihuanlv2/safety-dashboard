@@ -15887,41 +15887,54 @@ function exportTableToExcel(tableId, filename) {
   });
   document.getElementById('systemRefreshStatus').addEventListener('click', loadDataStatus);
   document.getElementById('systemRefreshLogs').addEventListener('click', loadRunLogs);
-  // ── 立即同步数据源：从公开 URL 拉取 data_pack.json ──
+  // ── 立即同步数据源：从公开 URL 拉取数据 ──
   window.DATA_PACK_URL = 'https://raw.githubusercontent.com/weihuanlv2/safety-dashboard/main/data_pack.json';
+  window.SITE_SUMMARY_URL = 'https://raw.githubusercontent.com/weihuanlv2/safety-dashboard/main/site_summary.json';
   document.getElementById('systemSyncBtn').addEventListener('click', function() {
     var button = this;
     var status = document.getElementById('systemImportStatus');
     button.disabled = true;
     status.textContent = '正在从云端拉取最新数据...';
-    fetch(window.DATA_PACK_URL + '?_=' + Date.now(), { cache: 'no-store' })
+    
+    // 优先加载预处理好的站点摘要数据
+    fetch(window.SITE_SUMMARY_URL + '?_=' + Date.now(), { cache: 'no-store' })
       .then(function(r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status + ' - 请检查 data_pack.json 是否已上传到 GitHub');
+        if (!r.ok) throw new Error('站点摘要数据不可用 (HTTP ' + r.status + ')');
         return r.json();
       })
-      .then(function(data) {
-        if (!Array.isArray(data) || !data.length) throw new Error('数据格式异常或为空');
-        var files = data.map(function(raw) {
-          return { name: raw.name, _preloadedRows: raw.rows };
-        });
-        showUploadStatus('正在更新看板（' + files.length + ' 个文件）…', '#4fc3f7', 120000);
-        return processRefreshFiles(files);
-      })
-      .then(function() {
-        // 同时更新骑手维度数据
-        return ensureDatabaseRiderSources();
-      })
-      .then(function() {
+      .then(function(summaryData) {
+        if (!Array.isArray(summaryData) || !summaryData.length) throw new Error('站点摘要数据为空');
+        // 直接设置 currentData（前端 renderTable 需要的格式）
+        currentData = JSON.parse(JSON.stringify(summaryData));
+        currentDataWebmaster = JSON.parse(JSON.stringify(summaryData));
+        status.textContent = '数据已加载，正在渲染...';
+        // 渲染表格和工作台
+        renderTable(currentData, '');
+        renderTable(currentDataWebmaster, '2');
+        setTimeout(function(){ window.dispatchEvent(new CustomEvent('open-workbench')); }, 100);
         status.textContent = '✓ 数据同步完成！已更新 ' + Date().toLocaleString('zh-CN', {hour12:false});
-        showUploadStatus('✓ 数据同步完成', '#27ae60', 15000);
-        // 同步完成后自动刷新看板视图
-        try {
-          // 先渲染数据表格（填充 DOM）
-          if (currentData && currentData.length) renderTable(currentData, '');
-          if (currentDataWebmaster && currentDataWebmaster.length) renderTable(currentDataWebmaster, '2');
-          // 延迟触发工作台渲染（等 DOM 更新完成）
-          setTimeout(function(){ window.dispatchEvent(new CustomEvent('open-workbench')); }, 100);
-        } catch(e) { console.warn('自动刷新视图失败:', e); }
+        showUploadStatus('✓ 数据同步完成（' + summaryData.length + '个站点）', '#27ae60', 15000);
+      })
+      .catch(function(error) {
+        // 站点摘要不可用，回退到原始 data_pack.json 解析
+        console.warn('[同步] 站点摘要加载失败，回退到原始文件解析:', error.message);
+        return fetch(window.DATA_PACK_URL + '?_=' + Date.now(), { cache: 'no-store' })
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            var files = data.map(function(raw) { return { name: raw.name, _preloadedRows: raw.rows }; });
+            showUploadStatus('正在解析原始文件（' + files.length + '个）...', '#4fc3f7', 120000);
+            return processRefreshFiles(files);
+          })
+          .then(function() {
+            return ensureDatabaseRiderSources();
+          })
+          .then(function() {
+            renderTable(currentData, '');
+            renderTable(currentDataWebmaster, '2');
+            setTimeout(function(){ window.dispatchEvent(new CustomEvent('open-workbench')); }, 100);
+            status.textContent = '✓ 数据同步完成（原始文件解析模式）';
+            showUploadStatus('✓ 数据同步完成', '#27ae60', 15000);
+          });
       })
       .catch(function(error) {
         status.textContent = '同步失败：' + error.message;
