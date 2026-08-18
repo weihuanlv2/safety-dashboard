@@ -14881,36 +14881,51 @@ if (_hasSavedData) {
   escortUniformSortTouched = false;
   escortUniformRendered = false;
   renderCurrentTab();
-} else if (window.__RAW_FILES__ && window.__RAW_FILES__.length > 0) {
-  // localStorage 为空但 __RAW_FILES__ 已就绪 → 使用预置数据兜底
-  processPreloadedData();
 } else {
-  // 尝试异步加载预置数据（三级回退：localStorage → __RAW_FILES__ → ensurePreloadedData）
-  ensurePreloadedData().then(function(ok) {
-    if (ok) { processPreloadedData(); }
-    else {
-      // 所有数据源均不可用 — 回退到内置 MOCK_DATA（保留模拟数值）
-      currentData = JSON.parse(JSON.stringify(MOCK_DATA));
-      currentDataWebmaster = JSON.parse(JSON.stringify(MOCK_DATA));
-      uploadStatus.innerHTML = '<span style="color:#27ae60;">已加载演示数据（本地数据文件不可用）</span>';
-      riderData = [];
-      morningMeetingRowsList = [];
-      morningRejectRowsList = [];
-      execRejectRowsList = [];
-      inspectionRowsList = [];
-      formListRows = [];
-      auditDetailRows = [];
-      batteryExportRows = [];
-      bloodPressureRows = [];
-      examTrainRows = [];
-      riderRowsList = [];
-      redlightRowsList = [];
-      aiDiagRowsList = [];
+  // 静态托管模式：优先从 site_summary.json 加载预处理数据
+  fetch('site_summary.json?_=' + Date.now(), { cache: 'no-store' })
+    .then(function(r) { return r.json(); })
+    .then(function(summaryData) {
+      var sites = Array.isArray(summaryData) ? summaryData : (summaryData.sites || []);
+      if (!sites.length) throw new Error('站点摘要为空');
+      var transformed = transformSiteSummary(sites);
+      currentData = JSON.parse(JSON.stringify(transformed));
+      currentDataWebmaster = JSON.parse(JSON.stringify(transformed));
+      window._escortRate = summaryData.escort_rate || null;
+      uploadStatus.innerHTML = '<span style="color:#27ae60;">已加载站点数据（' + sites.length + '站）</span>';
       syncDayLabels();
       renderTable(currentData, '');
       renderTable(currentDataWebmaster, '2');
-    }
-  });
+      renderCurrentTab();
+    })
+    .catch(function(err) {
+      console.warn('[启动] site_summary.json 加载失败:', err.message);
+      // 回退到 data_pack.json
+      ensurePreloadedData().then(function(ok) {
+        if (ok) { processPreloadedData(); }
+        else {
+          currentData = JSON.parse(JSON.stringify(MOCK_DATA));
+          currentDataWebmaster = JSON.parse(JSON.stringify(MOCK_DATA));
+          uploadStatus.innerHTML = '<span style="color:#27ae60;">已加载演示数据（本地数据文件不可用）</span>';
+          riderData = [];
+          morningMeetingRowsList = [];
+          morningRejectRowsList = [];
+          execRejectRowsList = [];
+          inspectionRowsList = [];
+          formListRows = [];
+          auditDetailRows = [];
+          batteryExportRows = [];
+          bloodPressureRows = [];
+          examTrainRows = [];
+          riderRowsList = [];
+          redlightRowsList = [];
+          aiDiagRowsList = [];
+          syncDayLabels();
+          renderTable(currentData, '');
+          renderTable(currentDataWebmaster, '2');
+        }
+      });
+    });
 }
 
 // Handle window resize for ECharts
