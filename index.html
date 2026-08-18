@@ -14907,6 +14907,7 @@ if (_hasSavedData) {
       renderTable(currentData, '');
       renderTable(currentDataWebmaster, '2');
       renderCurrentTab();
+      setTimeout(function(){ window.dispatchEvent(new CustomEvent('open-workbench')); }, 100);
     })
     .catch(function(err) {
       console.warn('[启动] site_summary.json 加载失败:', err.message);
