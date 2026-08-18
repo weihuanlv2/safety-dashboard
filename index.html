@@ -16101,8 +16101,11 @@ function exportTableToExcel(tableId, filename) {
       var panel = document.getElementById(targetId);
       if (panel) {
         panel.classList.add('active');
-        // 只在首次或内容为空时注入降级页面
+        // 清空原有后端依赖内容，注入优雅降级页面
         if (!panel.querySelector('.local-service-page')) {
+          // 移除旧的静态内容（仅保留第一个子元素后的内容作为降级页）
+          var existing = panel.querySelector('.system-page, .bot-page, .control-list-page, .health-page');
+          if (existing) existing.style.display = 'none';
           panel.insertAdjacentHTML('afterbegin', createLocalServicePage(section));
         }
       }
